@@ -226,7 +226,6 @@ void game(int lookahead_num){
     lookahead_num = lookahead_num * 2;
 
     man player, cpu;
-    ++cpu.guard_rest;
     while(true){
         std::cout << "player:\t";
         print_man(player);
@@ -270,16 +269,16 @@ void game(int lookahead_num){
         };
 
         std::cout << "\n";
-        std::cout << ">> CPU: ";
+        std::cout << ">> cpu: ";
         if(hand_cpu_side.hand_kind == enum_hand::attack){
             std::cout << "attack = " << hand_cpu_side.value;
             if(hand_player_side.hand_kind == enum_hand::guard){
-                std::cout << "\n\nreferection, to cpu -> " << hand_cpu_side.value << ".";
+                std::cout << "\n\nreflection, to cpu -> " << hand_cpu_side.value << ".";
             }
         }else if(hand_cpu_side.hand_kind == enum_hand::guard){
             std::cout << "guard.";
             if(hand_player_side.hand_kind == enum_hand::attack){
-                std::cout << "\n\nreferection, to player -> " << hand_player_side.value << ".";
+                std::cout << "\n\nreflection, to player -> " << hand_player_side.value << ".";
             }
         }else if(hand_cpu_side.hand_kind == enum_hand::pass){
             std::cout << "pass...";
